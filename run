@@ -1,0 +1,14 @@
+# !/usr/bin/env bash
+# if dpkg is not running
+if test "$(docker ps | grep dpkg | awk '{print $1}')" = ""; then
+        # if the dpkg container does not exist
+        if test "$(docker ps -a | grep dpkg | awk '{print $1}')" = ""; then
+                echo "making new container"
+                docker run -t --name dpkg dpkg
+        else
+                echo "restarting existing container"
+                docker start dpkg
+        fi
+fi
+
+docker exec -it -u docker dpkg bash
