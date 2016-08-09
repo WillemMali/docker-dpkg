@@ -1,2 +1,2 @@
-#!/usr/bin/env bash -eu
+#!/bin/bash -eu
 docker rm dpkg

@@ -1,4 +1,4 @@
-# !/usr/bin/env bash
+# !/bin/bash -eu
 # if dpkg is not running
 if test "$(docker ps | grep dpkg | awk '{print $1}')" = ""; then
         # if the dpkg container does not exist
