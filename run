@@ -3,12 +3,10 @@
 if test "$(docker ps | grep dpkg | awk '{print $1}')" = ""; then
         # if the dpkg container does not exist
         if test "$(docker ps -a | grep dpkg | awk '{print $1}')" = ""; then
-                echo "making new container"
-                docker run -t --name dpkg dpkg
-        else
-                echo "restarting existing container"
-                docker start dpkg
+                echo "running new container in background..."
+                docker run -dt --name dpkg dpkg
         fi
 fi
 
+echo "attaching to running container..."
 docker exec -it -u docker dpkg bash
