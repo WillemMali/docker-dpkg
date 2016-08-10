@@ -1,2 +1,5 @@
 #!/bin/bash -eu
-docker rm dpkg
+echo "stopping dpkg container..."
+docker stop dpkg || true
+echo "removing dpkg container..."
+docker rm dpkg || true
