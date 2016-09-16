@@ -5,6 +5,9 @@ if test "$(docker ps | grep dpkg | awk '{print $1}')" = ""; then
         if test "$(docker ps -a | grep dpkg | awk '{print $1}')" = ""; then
                 echo "running new container in background..."
                 docker run -dt --name dpkg dpkg
+        else
+                echo "starting existing containing in background..."
+                docker start dpkg
         fi
 fi
 
