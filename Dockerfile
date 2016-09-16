@@ -40,6 +40,7 @@ USER docker
 #                                     #
 
 RUN git clone https://github.com/WillemMali/dotfiles.git /home/docker/dotfiles
+RUN $HOME/dotfiles/deploy.sh
 
 # do as little as possible but keep running
 ENTRYPOINT /bin/sleep inf
